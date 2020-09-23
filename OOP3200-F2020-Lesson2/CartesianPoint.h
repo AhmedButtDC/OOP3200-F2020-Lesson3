@@ -17,6 +17,7 @@ public:
 	//operator overloads
 
 	CartesianPoint operator+(const CartesianPoint& point2) const;
+	CartesianPoint operator=(const CartesianPoint& newPoint);
 
 	double operator-(const CartesianPoint& point_to) const;
 	bool operator==(const CartesianPoint& other_point) const;

@@ -30,6 +30,13 @@ CartesianPoint CartesianPoint::operator+(const CartesianPoint& point2) const
 	return tempPoint;
 }
 
+CartesianPoint CartesianPoint::operator=(const CartesianPoint& newPoint)
+{
+	SetX(newPoint.GetX());
+	SetY(newPoint.GetY());
+	return *this;
+}
+
 double CartesianPoint::operator-(const CartesianPoint& point_to) const
 {
 	// difference between x values
