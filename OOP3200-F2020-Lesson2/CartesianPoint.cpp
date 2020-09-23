@@ -9,7 +9,7 @@
 
 using namespace std;
 // constructor for CartesianPoint
-CartesianPoint::CartesianPoint(const int x, const int y) : myX(x), myY(y)
+CartesianPoint::CartesianPoint(const int x, const int y) : m_x(x), m_y(y)
 {
 	//SetPoint(x, y);
 }
@@ -40,10 +40,10 @@ CartesianPoint CartesianPoint::operator=(const CartesianPoint& newPoint)
 double CartesianPoint::operator-(const CartesianPoint& point_to) const
 {
 	// difference between x values
-	const int xDelta = point_to.GetX() - myX;
+	const int xDelta = point_to.GetX() - m_x;
 
 	// difference between y values
-	const int yDelta = point_to.GetY() - myY;
+	const int yDelta = point_to.GetY() - m_y;
 
 	// return the formula (based on Pythagorean theorem)
 	return sqrt((xDelta * xDelta) + (yDelta * yDelta));
@@ -62,22 +62,22 @@ void CartesianPoint::SetPoint(int x, int y)
 
 void CartesianPoint::SetX(int x)
 {
-	myX = x;
+	m_x = x;
 }
 
 void CartesianPoint::SetY(int y)
 {
-	myY = y;
+	m_y = y;
 }
 
 int CartesianPoint::GetX() const
 {
-	return myX;
+	return m_x;
 }
 
 int CartesianPoint::GetY() const
 {
-	return myY;
+	return m_y;
 }
 
 
@@ -89,10 +89,10 @@ int CartesianPoint::GetY() const
 double CartesianPoint::GetDistanceTo(const CartesianPoint& point_to) const
 {
 	// difference between x values
-	const int xDelta = point_to.myX - myX;
+	const int xDelta = point_to.m_x - m_x;
 
 	// difference between y values
-	const int yDelta = point_to.myY - myY;
+	const int yDelta = point_to.m_y - m_y;
 
 	// return the formula (based on Pythagorean theorem)
 	return sqrt((xDelta * xDelta) + (yDelta * yDelta));
@@ -109,7 +109,7 @@ string CartesianPoint::ToString() const
 	stringstream strOut;
 
 	// build the string
-	strOut << "(" << myX << ", " << myY << ")";
+	strOut << "(" << m_x << ", " << m_y << ")";
 
 	// return the string
 	return strOut.str();
@@ -123,8 +123,8 @@ ostream& operator<<(ostream& out, const CartesianPoint& point)
 
 istream& operator>>(istream& in, CartesianPoint& point)
 {
-	in >> point.myX;
+	in >> point.m_x;
 	in.ignore();
-	in >> point.myY;
+	in >> point.m_y;
 	return in;
 }
