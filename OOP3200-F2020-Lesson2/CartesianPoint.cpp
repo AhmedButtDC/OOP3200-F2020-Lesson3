@@ -25,18 +25,18 @@ CartesianPoint::CartesianPoint(const CartesianPoint& point2)
 CartesianPoint CartesianPoint::operator+(const CartesianPoint& point2) const
 {
 	CartesianPoint tempPoint;
-	tempPoint.SetX(GetX() + point2.GetX());
-	tempPoint.SetY(GetY() + point2.GetY());
+	tempPoint.SetX((*this).GetX() + point2.GetX());
+	tempPoint.SetY((*this).GetY() + point2.GetY());
 	return tempPoint;
 }
 
 double CartesianPoint::operator-(const CartesianPoint& point_to) const
 {
 	// difference between x values
-	const int xDelta = point_to.myX - myX;
+	const int xDelta = point_to.GetX() - myX;
 
 	// difference between y values
-	const int yDelta = point_to.myY - myY;
+	const int yDelta = point_to.GetY() - myY;
 
 	// return the formula (based on Pythagorean theorem)
 	return sqrt((xDelta * xDelta) + (yDelta * yDelta));
@@ -106,4 +106,18 @@ string CartesianPoint::ToString() const
 
 	// return the string
 	return strOut.str();
+}
+
+ostream& operator<<(ostream& out, const CartesianPoint& point)
+{
+	out << point.ToString();
+	return out;
+}
+
+istream& operator>>(istream& in, CartesianPoint& point)
+{
+	in >> point.myX;
+	in.ignore();
+	in >> point.myY;
+	return in;
 }

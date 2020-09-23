@@ -54,7 +54,7 @@ int main()
 		distance = origin - destination;
 		cout << "origin is equal to destination" << to_string(origin == destination) << endl;
 		CartesianPoint newPoint = origin + destination;
-		cout << "origin plus destination = " << newPoint.ToString() << endl;
+		cout << "origin plus destination = " << newPoint << endl;
 
 		// Output 
 		// Show the points and the distance
@@ -62,6 +62,13 @@ int main()
 		cout << "\nThe Distance between " << origin.ToString()
 			<< " and " << destination.ToString() << " is "
 			<< distance << ". " << endl;
+
+		CartesianPoint anotherPoint;
+
+		cout << "\nEnter another point: ";
+		cin >> anotherPoint;
+
+		cout << "You entered " << anotherPoint << endl;
 	}
 
 	catch (exception& ex)

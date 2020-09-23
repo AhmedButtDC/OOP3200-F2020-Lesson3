@@ -21,6 +21,9 @@ public:
 	double operator-(const CartesianPoint& point_to) const;
 	bool operator==(const CartesianPoint& other_point) const;
 
+	friend ostream& operator<<(ostream& out, const CartesianPoint& point);
+	friend istream& operator>>(istream& in, CartesianPoint& point);
+
 	// get x
 	int GetX() const;
 
